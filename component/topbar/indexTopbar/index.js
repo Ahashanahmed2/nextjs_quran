@@ -91,9 +91,10 @@ export default function Index({ data, name, placeholder, book, surah }) {
               <Dropdown.Menu>
                 {data.map((v, i) => (
                   <div key={i}>
-                    <Dropdown.Item href={`/book/${v.book}`}>
-                      {v.book}
-                    </Dropdown.Item>
+                      <Link href={`/book/${v.book}`} passHref>
+                      <Dropdown.Item>{v.book}</Dropdown.Item>
+                    </Link>
+                 
                   </div>
                 ))}
               </Dropdown.Menu>
