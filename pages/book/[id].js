@@ -7,29 +7,31 @@ export default function book({ books, surah, value }) {
   
 
   return (
-    <Container fluid>
+    <div>
       <IndexTopbar
         data={value}
         name="book"
         placeholder={`সুরা ${books} তে কোন কিছু সার্চ করুন`}
-        book= {books}
+        book={books}
       />
-      
-      <div className="text-center">
-      <h3 className="mt-2 ">কোরআন শরিফের বঙ্গানুবাদ</h3>
-      <Row sm={2} xs={1} md={5}>
-          {surah.map((v, k) => (
-            <div key={k}>
-              <div> book : {books}</div>
 
-              <Link href={`/surah/${books}/${v}`}>
-                <a>{v}</a>
-              </Link>
-            </div>
-          ))}
-       </Row>
-      </div>
-      </Container>
+     
+
+        <Container className="text-center bg-dark">
+          <h3 className="mt-2 ">কোরআন শরিফের বঙ্গানুবাদ</h3>
+          <Row sm={2} xs={1} md={5}>
+            {surah.map((value, key) => (
+              <Col key={key} className="p-2">
+                <Link href={`/surah/${books}/${value}`} passHref>
+                  <p className="text-light bg-light bg-opacity-25">{value}</p>
+                </Link>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+
+       </div>
+   
   );
 }
 
